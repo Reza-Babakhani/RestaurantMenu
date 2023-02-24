@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:custom="clr-namespace:RestaurantMenu.App.Customs"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             FlowDirection="RightToLeft"
+             Visual="Material"
+             x:Class="RestaurantMenu.App.Pages.FoodListPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="12" >
+            <StackLayout Orientation="Horizontal"  BackgroundColor="LightBlue" Padding="20,5">
+                <Label Text="غذا ها" TextColor="Black" FontSize="22" HorizontalOptions="StartAndExpand"  VerticalTextAlignment="Center" VerticalOptions="Center"/>
+               
+                <ImageButton x:Name="btnAdd" HeightRequest="40" Source="IconAdd.png" Aspect="AspectFit" VerticalOptions="Center" BackgroundColor="Transparent" Clicked="btnAdd_Clicked"/>
+                <ImageButton x:Name="btnBack" HeightRequest="40" Source="IconBack.png" Aspect="AspectFit" VerticalOptions="Center" BackgroundColor="Transparent" Clicked="btnBack_Clicked"/>
+
+            </StackLayout>
+            <StackLayout x:Name="stkSearch" IsVisible="True" Margin="20,0"  Spacing="0">
+                <StackLayout Orientation="Horizontal" Padding="0"  Margin="10,0">
+                    <ImageButton x:Name="btnSearch" Source="IconSearch.png" HorizontalOptions="StartAndExpand" Aspect="AspectFit" HeightRequest="25"   WidthRequest="25" VerticalOptions="Center" BackgroundColor="Transparent" />
+                    <custom:CustomEntry x:Name="searchBar" HorizontalTextAlignment="Start" TextChanged="searchBar_TextChanged" Keyboard="Default" Placeholder="جستجو..." FontFamily="Aviny" Visual="Default" HorizontalOptions="FillAndExpand" FontSize="14"  BackgroundColor="Transparent" />
+                </StackLayout>
+                <BoxView HeightRequest="1.5" BackgroundColor="Black" VerticalOptions="End" Margin="0"/>
+            </StackLayout>
+            <ListView x:Name="listFoods" ItemTapped="listFoods_ItemTapped" SelectionMode="None" Margin="20" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell   >
+                            <StackLayout Orientation="Horizontal" Padding="10,0" >
+                                <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand" Spacing="0" Padding="0">
+                                    <Label Text="{Binding Path=Name,StringFormat='   {0}   '}" FontSize="20" TextColor="Black"  />
+                                    <Label Text="{Binding PriceToString}" FontSize="20" TextColor="DarkBlue" />
+
+
+                                </StackLayout>
+                                <ImageButton x:Name="btnDelete" HeightRequest="35" Source="IconTrashRed.png" Aspect="AspectFit" VerticalOptions="Center" BackgroundColor="Transparent" Clicked="btnDeleteFood_Clicked" CommandParameter="{Binding .}"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

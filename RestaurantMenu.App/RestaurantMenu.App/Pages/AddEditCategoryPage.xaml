@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             FlowDirection="RightToLeft"
+             Visual="Material"
+             x:Class="RestaurantMenu.App.Pages.AddEditCategoryPage" >
+    <ContentPage.Content>
+        <ScrollView Margin="20">
+            <StackLayout>
+                <Label x:Name="lblTitle" Text="نام دسته بندی:" TextColor="Black" FontSize="20"/>
+                <Entry x:Name="txtName" Keyboard="Plain" HorizontalOptions="FillAndExpand"  />
+                <Grid ColumnSpacing="15" Margin="15">
+                    <Button Clicked="Ok_Clicked" Text="ذخیره" Grid.Column="0" FontSize="18" />
+                    <Button Clicked="Cancel_Clicked" Text="بازگشت" Grid.Column="1"   FontSize="18"/>
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

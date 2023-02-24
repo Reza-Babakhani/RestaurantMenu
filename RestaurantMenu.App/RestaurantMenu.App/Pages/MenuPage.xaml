@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RestaurantMenu.App.Pages.MenuPage"
+            
+             xmlns:custom="clr-namespace:RestaurantMenu.App.Customs"
+            xmlns:local="clr-namespace:RestaurantMenu.App;assembly=RestaurantMenu.App"
+             >
+
+    <ContentPage.Content>
+
+        <StackLayout  >
+            <StackLayout Orientation="Horizontal"   HeightRequest="60">
+                <Label x:Name="txtTitle" Text="منو" FontSize="Large" TextColor="Black"  Margin="15,0" />
+                <ImageButton x:Name="btnSearch" Source="IconSearch.png" HorizontalOptions="StartAndExpand" Aspect="AspectFit" HeightRequest="25"   WidthRequest="25" VerticalOptions="Center" BackgroundColor="Transparent" Clicked="btnSearch_Clicked"/>
+
+                <ImageButton Source="IconCart.png" IsVisible="False" BackgroundColor="Transparent" Aspect="AspectFit" HeightRequest="40" Margin="15,0" VerticalOptions="Center" />
+            </StackLayout>
+
+            <StackLayout x:Name="stkSearch" IsVisible="False" Margin="20,0" Padding="0" Spacing="0">
+                <StackLayout Orientation="Horizontal" Padding="0"  Margin="10,0">
+                    <custom:CustomEntry x:Name="searchBar"  TextChanged="searchBar_TextChanged" Keyboard="Default" Placeholder="جستجو..." FontFamily="Aviny" Visual="Default" HorizontalOptions="FillAndExpand" FontSize="18"  BackgroundColor="Transparent" />
+                </StackLayout>
+                <BoxView HeightRequest="1.5" BackgroundColor="Black" VerticalOptions="End" Margin="0"/>
+            </StackLayout>
+
+            <Frame CornerRadius="30"   Margin="0,15,-30,-30" BackgroundColor="#d6d8d8" VerticalOptions="FillAndExpand" Padding="30,0,0,30" >
+
+                <Grid>
+                    <!--<Image Source="Food1.jpg" Aspect="AspectFill"/>
+                    <BoxView BackgroundColor="White" Opacity="0.8" />-->
+                    <StackLayout Margin="10,10" Padding="10,0" >
+
+                        <!--Categories-->
+                        <ScrollView x:Name="scrollCategory" Orientation="Horizontal" FlowDirection="LeftToRight"  >
+                            <StackLayout x:Name="stkCategories" Orientation="Horizontal" FlowDirection="RightToLeft"  Padding="5" Spacing="0" Visual="Default" >
+                                <StackLayout.Resources>
+                                    <Style TargetType="Button" x:Key="CategoryTitle">
+                                        <Setter Property="TextColor" Value="Black"/>
+                                        <Setter Property="BackgroundColor" Value="Transparent"/>
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="FontFamily" Value="Aviny"/>
+                                        <Setter Property="VerticalOptions" Value="Center"/>
+
+                                        <Setter Property="Margin" Value="-3"/>
+                                        <Setter Property="BorderColor" Value="Transparent"/>
+                                        <Setter Property="BorderWidth" Value="0" />
+                                        <Setter Property="CornerRadius" Value="0"/>
+                                        <Setter Property="HorizontalOptions" Value="Start"/>
+                                    </Style>
+
+                                    <Style TargetType="Button" x:Key="SelectedCat" BasedOn="{x:StaticResource CategoryTitle}">
+                                        <Setter Property="FontSize" Value="17"/>
+                                        <Setter Property="FontAttributes" Value="Bold"/>
+                                        <Setter Property="TextColor" Value="Black"/>
+
+                                    </Style>
+
+                                    <Style TargetType="Button" x:Key="DeSelectedCat" BasedOn="{x:StaticResource CategoryTitle}">
+                                        <Setter Property="FontSize" Value="13"/>
+                                        <Setter Property="FontAttributes" Value="None"/>
+                                        <Setter Property="TextColor" Value="#383838"/>
+
+                                    </Style>
+                                </StackLayout.Resources>
+
+
+
+
+                            </StackLayout>
+
+                        </ScrollView>
+                        <!--End Categories-->
+
+                        <BoxView x:Name="sepBox" HeightRequest="1" BackgroundColor="Black" Margin="0,0" />
+
+                        <!--Foods-->
+                        <ListView x:Name="listFoods" RowHeight="120"  ItemTapped="listFoods_ItemTapped"  CachingStrategy="RecycleElementAndDataTemplate"  SeparatorVisibility="None" SelectionMode="None" BackgroundColor="Transparent" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell >
+                                        <Grid Margin="10,0,10,8" VerticalOptions="Start">
+                                            <Frame  CornerRadius="15" HasShadow="True" Opacity="0.9" IsClippedToBounds="True" Padding="0" VerticalOptions="Start" >
+                                                <Grid VerticalOptions="Start">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition  Width="3*" />
+                                                        <ColumnDefinition Width="5*" />
+
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image  Grid.Column="0" Source="{Binding ImageUri}"  Aspect="AspectFill" VerticalOptions="FillAndExpand" />
+                                                    <StackLayout Margin="5" Grid.Column="1" VerticalOptions="Start" Spacing="0"  >
+
+                                                        <ScrollView  Orientation="Horizontal" FlowDirection="LeftToRight"  HorizontalScrollBarVisibility="Never">
+                                                            <StackLayout Orientation="Horizontal" FlowDirection="RightToLeft" >
+                                                                <Label  Margin="0,0,0,5" Padding="0,0" Text="{Binding Path=Name,StringFormat='   {0}   '}" FontSize="16" TextColor="Black"/>
+
+                                                            </StackLayout>
+                                                        </ScrollView>
+                                                        <Label  Text="{Binding PriceToString}"   FontSize="16" TextColor="DarkBlue" />
+
+
+                                                    </StackLayout>
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+
+                                    
+
+
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <!--End Foods-->
+
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RestaurantMenu.App.MainPage"
+             Visual="Material"
+             xmlns:local="clr-namespace:RestaurantMenu.App.Pages"
+             FlowDirection="RightToLeft"
+             
+            CurrentPageChanged="TabbedPage_CurrentPageChanged"
+             UnselectedTabColor="Gray"
+             SelectedTabColor="Black"
+             BarBackgroundColor="WhiteSmoke"
+            NavigationPage.HasNavigationBar="False"
+            >
+
+
+    <TabbedPage.Children>
+        <local:MenuPage x:Name="menuPage" Title="منو" IconImageSource="IconMenu.png"/>
+        <local:EditPage x:Name="editPage" Title="ویرایش" IconImageSource="IconEdit.png"/>
+
+    </TabbedPage.Children>
+    
+
+
+
+
+
+</TabbedPage>

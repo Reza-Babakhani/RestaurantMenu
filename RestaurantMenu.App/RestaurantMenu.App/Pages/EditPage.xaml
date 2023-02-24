@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RestaurantMenu.App.Pages.EditPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0">
+
+
+                <StackLayout x:Name="stkCategory" Orientation="Horizontal" HeightRequest="80" Padding="15" Spacing="15" BackgroundColor="#fff569">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="StkCategory_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="IconCategory.png" Aspect="AspectFit" VerticalOptions="Center" />
+                    <Label Text="دسته بندی ها" FontSize="26" TextColor="Black" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout x:Name="stkFood" Orientation="Horizontal" HeightRequest="80" Padding="15" Spacing="15" BackgroundColor="#69d4ff">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="StkFood_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="IconFood.png" Aspect="AspectFit" VerticalOptions="Center" />
+                    <Label Text="غذا ها" FontSize="26" TextColor="Black" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout x:Name="stkSetting" Orientation="Horizontal" HeightRequest="80" Padding="15" Spacing="15" BackgroundColor="#70ff73">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="StkSetting_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="IconSetting.png" Aspect="AspectFit" VerticalOptions="Center" />
+                    <Label Text="تنظیمات" FontSize="26" TextColor="Black" VerticalOptions="Center"/>
+                </StackLayout>
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

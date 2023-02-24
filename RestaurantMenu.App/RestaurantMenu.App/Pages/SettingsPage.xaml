@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RestaurantMenu.App.Pages.SettingsPage"
+              Visual="Material"
+             NavigationPage.HasNavigationBar="False"
+             FlowDirection="RightToLeft">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"  BackgroundColor="LightGreen" Padding="20,5">
+                <Label Text="تنظیمات" TextColor="Black" FontSize="22" HorizontalOptions="StartAndExpand"  VerticalTextAlignment="Center" VerticalOptions="Center"/>
+
+             
+                <ImageButton x:Name="btnBack" HeightRequest="40" Source="IconBack.png" Aspect="AspectFit" VerticalOptions="Center" BackgroundColor="Transparent" Clicked="btnBack_Clicked"/>
+
+            </StackLayout>
+            <ScrollView Margin="15" VerticalOptions="StartAndExpand">
+                <StackLayout>
+                    <Label Text="نام رستوران:" FontSize="20"/>
+                    <Entry x:Name="txtName" Placeholder="رستوران..." FontSize="18" />
+                    <Frame BorderColor="Gray" BackgroundColor="Transparent" CornerRadius="15">
+                        <StackLayout>
+                            <Label Text="در صورتی که میخواهید تغییر دهید وارد کنید" TextColor="Red" FontSize="20"/>
+                            <Label Text="رمز عبور قبلی:" FontSize="20"/>
+                            <Entry x:Name="txtOldPassword" MaxLength="8" IsPassword="True" FontSize="18" />
+                            <Label Text="رمز عبور:" FontSize="20"/>
+                            <Entry x:Name="txtPassword" MaxLength="8" IsPassword="True" FontSize="18" />
+                            <Label Text="تکرار رمز عبور:" FontSize="20"/>
+                            <Entry x:Name="txtConfrimPassword" MaxLength="8" IsPassword="True" FontSize="18" />
+                        </StackLayout>
+                    </Frame>
+                    
+                </StackLayout>
+            </ScrollView>
+            <Button Text="ذخیره" x:Name="btnSave" Margin="0" CornerRadius="0" FontSize="20" Clicked="btnSave_Clicked"/>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

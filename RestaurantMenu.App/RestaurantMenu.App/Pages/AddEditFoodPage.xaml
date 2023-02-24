@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             FlowDirection="RightToLeft"
+             Visual="Material"
+             Padding="0"
+             x:Class="RestaurantMenu.App.Pages.AddEditFoodPage" 
+             xmlns:behaviors="clr-namespace:RestaurantMenu.App.Behaviors"
+             >
+    <ContentPage.Content>
+      
+            <StackLayout>
+                <ScrollView >
+                    <StackLayout>
+                    <Grid>
+                        
+                        <ImageButton BackgroundColor="Transparent" x:Name="imgFood" Aspect="AspectFill" Source="defaultFoodImage.jpg" Clicked="imgFood_Clicked"/>
+                        <ImageButton Source="IconClose.png" HeightRequest="50" BackgroundColor="White" Padding="0" CornerRadius="25" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFit" WidthRequest="50" Margin="20" x:Name="btnDeleteImage"   Clicked="btnDeleteImage_Clicked" />
+
+                    </Grid>
+                        <StackLayout Margin="20">
+
+
+                            
+                            <Label x:Name="lblTitle" Text="نام غذا:" TextColor="Black" FontSize="20"/>
+                            <Entry x:Name="txtName" FontSize="18" Keyboard="Plain" HorizontalOptions="FillAndExpand"  />
+
+                            <Label x:Name="lblPrice" Text="قیمت:" TextColor="Black" FontSize="20"/>
+                        <Entry x:Name="txtPrice" FontSize="18" Keyboard="Numeric" HorizontalOptions="FillAndExpand" >
+                            <Entry.Behaviors>
+                                <behaviors:NumericValidationBehavior />
+                            </Entry.Behaviors>
+                        </Entry>
+
+                        <Label x:Name="lblCategory" Text="دسته بندی:" TextColor="Black" FontSize="20"/>
+                            <Picker  x:Name="pickerCategory" Title="دسته بندی" FontSize="16"  HorizontalOptions="FillAndExpand" FontFamily="Aviny" ItemDisplayBinding="{Binding Name}"  />
+
+                            <Label x:Name="lblDesc" Text="توضیحات:" TextColor="Black" FontSize="20"/>
+                            <Entry x:Name="txtDesc" Keyboard="Plain" FontSize="18" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+                <Grid ColumnSpacing="15" Margin="15" HeightRequest="100">
+                    <Button Clicked="Ok_Clicked" Text="ذخیره" Grid.Column="0" FontSize="16"   />
+                    <Button Clicked="Cancel_Clicked" Text="بازگشت" Grid.Column="1"   FontSize="16" />
+
+                </Grid>
+            </StackLayout>
+        
+
+
+    </ContentPage.Content>
+</ContentPage>

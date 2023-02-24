@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RestaurantMenu.App.Pages.FoodCaroselItemPage"
+ 
+             NavigationPage.HasNavigationBar="False"
+             FlowDirection="RightToLeft"
+             Visual="Material"
+             Padding="0"
+             
+             xmlns:behaviors="clr-namespace:RestaurantMenu.App.Behaviors"
+             >
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Grid>
+                <Image BackgroundColor="Transparent" x:Name="imgFood" Aspect="AspectFill" Source="defaultFoodImage.jpg" />
+                <ImageButton Source="IconBack.png" HeightRequest="50" BackgroundColor="White" Padding="5" BorderColor="Black" Opacity="0.7" BorderWidth="0.5" CornerRadius="25" HorizontalOptions="End" VerticalOptions="Start" Aspect="AspectFit" WidthRequest="50" Margin="20" x:Name="btnBack"   Clicked="btnBack_Clicked"  />
+
+            </Grid>
+            <ScrollView >
+                <StackLayout>
+
+                    <StackLayout Margin="20">
+                        <!--<Label x:Name="lblCategory" Text="" TextColor="DarkRed" FontSize="24"/>-->
+                        <Label x:Name="lblName" Text="" TextColor="Black" FontSize="24"/>
+                        <Label x:Name="lblPrice" Text="" TextColor="DarkBlue" FontSize="22"/>
+                        <Label x:Name="lblDesc" Text="" TextColor="DarkGray" FontSize="20"/>
+
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            
+        </StackLayout>
+
+
+
+    </ContentPage.Content>
+</ContentPage>
